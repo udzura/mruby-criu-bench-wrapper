@@ -1,0 +1,7 @@
+name: mruby-criu-bench-wrapper
+description: CriuBenchWrapper class
+author: Uchio Kondo
+website: https://github.com/udzura/mruby-criu-bench-wrapper
+protocol: git
+repository: https://github.com/udzura/mruby-criu-bench-wrapper.git
+license: MIT
