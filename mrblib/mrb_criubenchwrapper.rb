@@ -17,7 +17,8 @@ def __main__(argv)
   end
   tpid = Process.fork do
     # customize me
-    system "timeout -s INT 2s strace -c -f -p #{main} -o /tmp/strace.#{$$}.log"
+    system "timeout -s INT 2s strace -c -f -p #{main} > /tmp/strace.#{$$}.log 2>&1"
+    Syslog.info("Done. Performance log is: /tmp/strace.#{$$}.log")
   end
 
   Syslog.info "Main is: #{main}"
@@ -28,6 +29,5 @@ def __main__(argv)
   ret = loop.run
 
   Syslog.info("Finished: #{ret.inspect}")
-  Syslog.info("Performance log is: /tmp/strace.#{$$}.log")
   Syslog.close
 end
